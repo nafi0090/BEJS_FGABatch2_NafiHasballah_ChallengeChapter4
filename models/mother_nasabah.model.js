@@ -1,20 +1,20 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-const NASABAH = {
-	getAllNasabah: async () => {
+const MOTHER_NASABAH = {
+	getMotherNasabah: async () => {
 		try {
-			const result = await prisma.nasabah.findMany();
+			const result = await prisma.mother_nasabah.findMany();
 			return result;
 		} catch (err) {
 			console.error(err.message);
-			return err;
+			return err
 		}
 	},
 
-    createNasabah: async (data) => {
+    createMotherNasabah: async (data) => {
         try{
-            const result = await prisma.nasabah.create({
+            const result = await prisma.mother_nasabah.create({
                 data: data
         });
             return result;
@@ -24,9 +24,9 @@ const NASABAH = {
         }
     },
 
-    updateNasabah: async (id, data) => {
+    updateMotherNasabah: async (id, data) => {
         try {
-            const result = await prisma.nasabah.update({
+            const result = await prisma.mother_nasabah.update({
                 where: { id: id },
                 data: data
             });
@@ -37,9 +37,9 @@ const NASABAH = {
         }
     },
 
-    deleteNasabah: async (id) => {
+    deleteMotherNasabah: async (id) => {
         try {
-            const result = await prisma.nasabah.delete({
+            const result = await prisma.mother_nasabah.delete({
                 where: {id: id},
             });
             return result;
@@ -49,4 +49,4 @@ const NASABAH = {
     }
 };
 
-module.exports = NASABAH;
+module.exports = MOTHER_NASABAH;

@@ -1,10 +1,10 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-const NASABAH = {
-	getAllNasabah: async () => {
+const TRANSACTION_TYPE = {
+	getAllTransType: async () => {
 		try {
-			const result = await prisma.nasabah.findMany();
+			const result = await prisma.transaction_type.findMany();
 			return result;
 		} catch (err) {
 			console.error(err.message);
@@ -12,9 +12,9 @@ const NASABAH = {
 		}
 	},
 
-    createNasabah: async (data) => {
+    createTransType: async (data) => {
         try{
-            const result = await prisma.nasabah.create({
+            const result = await prisma.transaction_type.create({
                 data: data
         });
             return result;
@@ -24,9 +24,9 @@ const NASABAH = {
         }
     },
 
-    updateNasabah: async (id, data) => {
+    updateTransType: async (id, data) => {
         try {
-            const result = await prisma.nasabah.update({
+            const result = await prisma.transaction_type.update({
                 where: { id: id },
                 data: data
             });
@@ -37,9 +37,9 @@ const NASABAH = {
         }
     },
 
-    deleteNasabah: async (id) => {
+    deleteTransType: async (id) => {
         try {
-            const result = await prisma.nasabah.delete({
+            const result = await prisma.transaction_type.delete({
                 where: {id: id},
             });
             return result;
@@ -49,4 +49,4 @@ const NASABAH = {
     }
 };
 
-module.exports = NASABAH;
+module.exports = TRANSACTION_TYPE;

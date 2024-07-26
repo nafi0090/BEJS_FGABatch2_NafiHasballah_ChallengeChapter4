@@ -1,14 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
-const NASABAH_CONTROLLER = require('../../../../controllers/nasabah.controller');
+const NASABAH = require('../../../../controllers/nasabah.controller');
 
-router.get('/', NASABAH_CONTROLLER.index);
+router.get('/', NASABAH.indexNasabah);
 
-router.post('/create', NASABAH_CONTROLLER.createdata);
+router.post('/create', NASABAH.createNasabah);
 
-router.put('/update/:id', NASABAH_CONTROLLER.updatedata);
+router.put('/update/:id', NASABAH.updatedNasabah);
 
-router.delete('/delete/:id', NASABAH_CONTROLLER.deletedata);
+router.delete('/delete/:id', NASABAH.deleteNasabah);
 
 module.exports = router;
